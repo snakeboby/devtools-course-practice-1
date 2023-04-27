@@ -17,6 +17,7 @@ TEST(Chubenko_Andrey_ComplexNumberTest, Can_Create_Zero) {
     EXPECT_EQ(im, z.getIm());
 }
 
+
     TEST(Chubenko_Andrey_ComplexNumberTest, Can_Copy_Constructor) {
         // Arrange
         double re = 3.0;
