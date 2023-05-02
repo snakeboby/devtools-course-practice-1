@@ -4,59 +4,45 @@
 
 #include "include/complex_number.h"
 
-TEST(Chubenko_Andrey_ComplexNumberTest, Can_Create_Zero) {
+TEST(Chubenko_Andrey_ComplexNumberTest, Can_Copy_Constructor) {
     // Arrange
-    double re = 0.0;
-    double im = 0.0;
+    double re = 3.0;
+    double im = 4.0;
+    ComplexNumber x(re, im);
 
     // Act
-    ComplexNumber z(re, im);
+    ComplexNumber y = x;
 
     // Assert
-    EXPECT_EQ(re, z.getRe());
-    EXPECT_EQ(im, z.getIm());
+    EXPECT_EQ(y.getRe(), re);
+    EXPECT_EQ(y.getIm(), im);
 }
 
+TEST(Chubenko_Andrey_ComplexNumberTest, Can_Equals) {
+    // Arrange
+    double re = 3.0;
+    double im = 4.0;
+    ComplexNumber x(re, im);
+    ComplexNumber y(re, im);
 
-    TEST(Chubenko_Andrey_ComplexNumberTest, Can_Copy_Constructor) {
-        // Arrange
-        double re = 3.0;
-        double im = 4.0;
-        ComplexNumber x(re, im);
+    // Act
+    bool result = (x == y);
 
-        // Act
-        ComplexNumber y = x;
+    // Assert
+    ASSERT_EQ(x, y);
+}
 
-        // Assert
-        EXPECT_EQ(y.getRe(), re);
-        EXPECT_EQ(y.getIm(), im);
-    }
+TEST(Chubenko_Andrey_ComplexNumberTest, Can_Sum) {
+    // Arrange
+    double re = 1.0;
+    double im = 2.0;
+    ComplexNumber x(re, im);
+    ComplexNumber y(re, im);
 
-    TEST(Chubenko_Andrey_ComplexNumberTest, Can_Equals) {
-        // Arrange
-        double re = 3.0;
-        double im = 4.0;
-        ComplexNumber x(re, im);
-        ComplexNumber y(re, im);
+    // Act
+    ComplexNumber z = x + y;
 
-        // Act
-        bool result = (x == y);
-
-        // Assert
-        ASSERT_TRUE(result);
-    }
-
-    TEST(Chubenko_Andrey_ComplexNumberTest, Can_Sum) {
-        // Arrange
-        double re = 1.0;
-        double im = 2.0;
-        ComplexNumber x(re, im);
-        ComplexNumber y(re, im);
-
-        // Act
-        ComplexNumber z = x + y;
-
-        // Assert
-        ASSERT_EQ(z.getRe(), 2.0);
-        ASSERT_EQ(z.getIm(), 4.0);
+    // Assert
+    ASSERT_EQ(z.getRe(), 2.0);
+    ASSERT_EQ(z.getIm(), 4.0);
 }
