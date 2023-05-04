@@ -25,9 +25,6 @@ TEST(Chubenko_Andrey_ComplexNumberTest, Can_Equals) {
     ComplexNumber x(re, im);
     ComplexNumber y(re, im);
 
-    // Act
-    bool result = (x == y);
-
     // Assert
     ASSERT_EQ(x, y);
 }
