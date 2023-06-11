@@ -33,7 +33,7 @@ add_test(
     COMMAND ${APPLICATION} 6-asdb
 )
 set_tests_properties (${prefix}_fails_on_incorrect_data PROPERTIES
-    PASS_REGULAR_EXPRESSION Calculational error occured!
+    PASS_REGULAR_EXPRESSION "Calculation error!"
     LABELS "${MODULE}")
 
 add_test(
@@ -41,7 +41,7 @@ add_test(
     COMMAND ${APPLICATION} 3/0
 )
 set_tests_properties (${prefix}_fails_on_divide_by_zero PROPERTIES
-    PASS_REGULAR_EXPRESSION Calculational error occured!
+    PASS_REGULAR_EXPRESSION "Calculation error!"
     LABELS "${MODULE}")
 
 add_test(

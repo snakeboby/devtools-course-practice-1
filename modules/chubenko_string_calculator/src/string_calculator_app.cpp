@@ -45,7 +45,6 @@ std::string StringCalculatorApp::argument_error() {
 
 std::string StringCalculatorApp::calc_error(const std::invalid_argument& e) {
     std::string error = std::string("")
-    + "Calculation error!\n"
-    + e.what();
+    + "Calculation error!";
     return error;
 }
