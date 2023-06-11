@@ -4,7 +4,7 @@
 
 #include <string>
 
-#include "include/string_calculator.h"
+#include "../include/string_calculator.h"
 
 TEST(Calc_String_Calculator_Test, Can_Set_Calc_Infix) {
     // Arrange
@@ -110,7 +110,7 @@ TEST(Calc_String_Calculator_Test, Can_Not_Divide_By_Zero) {
 TEST(Calc_String_Calculator_Test, Can_Rase_To_A_Power) {
     // Arrange
     CalcStringCalculator sc;
-    std::string str = "3^3";
+    std::string str = "3^2";
 
     // Act
     sc.set_Calc_infix(str);
@@ -139,7 +139,7 @@ TEST(Calc_String_Calculator_Test, Can_Not_Calc_Calculate_Plus_Begin) {
     std::string str = "+33";
 
     // Act
-    sc.set_infix(str);
+    sc.set_Calc_infix(str);
 
     // Assert
     ASSERT_ANY_THROW(sc.CalcCalculate());

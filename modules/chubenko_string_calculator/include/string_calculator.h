@@ -6,11 +6,11 @@
 #include <stack>
 #include <string>
 
-class StringCalculator {
+class CalcStringCalculator {
  private:
-    std::string infix_, postfix_;
-    std::stack<char> charStack_;
-    std::stack<double> doubleStack_;
+    std::string Calc_infix_, Calc_postfix_;
+    std::stack<char> Calc_charStack_;
+    std::stack<double> Calc_doubleStack_;
 
     bool CalcCheck();
     int CalcPriority(const char& el);

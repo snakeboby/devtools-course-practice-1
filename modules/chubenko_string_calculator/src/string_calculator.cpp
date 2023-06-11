@@ -1,25 +1,25 @@
 // Copyright 2023 CHUBENKO ANDREY
 
-#include "include/string_calculator.h"
+#include "../include/string_calculator.h"
 
 #include <math.h>
 
 #include <iostream>
 #include <string>
 
-void StringCalculator::set_Calc_infix(const std::string str) {
+void CalcStringCalculator::set_Calc_infix(const std::string str) {
     Calc_infix_ = str;
 }
 
-std::string StringCalculator::get_Calc_infix() {
+std::string CalcStringCalculator::get_Calc_infix() {
     return Calc_infix_;
 }
 
-std::string StringCalculator::get_Calc_postfix() {
+std::string CalcStringCalculator::get_Calc_postfix() {
     return Calc_postfix_;
 }
 
-bool StringCalculator::CalcCheck() {
+bool CalcStringCalculator::CalcCheck() {
     while (!Calc_charStack_.empty()) {
         Calc_charStack_.pop();
     }
@@ -102,14 +102,14 @@ bool StringCalculator::CalcCheck() {
         }
         }
     }
-    if (charStack_.empty()) {
+    if (Calc_charStack_.empty()) {
         return true;
     } else {
         return false;
     }
 }
 
-int StringCalculator::CalcPriority(const char& el) {
+int CalcStringCalculator::CalcPriority(const char& el) {
     switch (el) {
     case '(':
     {
@@ -139,11 +139,11 @@ int StringCalculator::CalcPriority(const char& el) {
     return -1;
 }
 
-int StringCalculator::get_Calc_priority(const char& el) {
+int CalcStringCalculator::get_Calc_priority(const char& el) {
     return CalcPriority(el);
 }
 
-void StringCalculator::CalcToPostfix() {
+void CalcStringCalculator::CalcToPostfix() {
     if (CalcCheck()) {
         std::string tmp = '(' + Calc_infix_ + ')';
         int sizeOfTmp = static_cast<int>(tmp.size());
@@ -179,7 +179,7 @@ void StringCalculator::CalcToPostfix() {
     }
 }
 
-double StringCalculator::CalcCalculate() {
+double CalcStringCalculator::CalcCalculate() {
     while (!Calc_doubleStack_.empty()) {
         Calc_doubleStack_.pop();
     }
@@ -241,13 +241,13 @@ double StringCalculator::CalcCalculate() {
     return Calc_doubleStack_.top();
 }
 
-void StringCalculator::set_Calc_stacks(int n) {
+void CalcStringCalculator::set_Calc_stacks(int n) {
     for (int i = 0; i < n; i++) {
         Calc_charStack_.push('+');
         Calc_doubleStack_.push(2.5);
     }
 }
 
-void StringCalculator::set_Calc_postfix(const std::string str) {
+void CalcStringCalculator::set_Calc_postfix(const std::string str) {
     Calc_postfix_ = str;
 }
